@@ -23,6 +23,7 @@ func main() {
 	database.RunMigrations(database.DB)
 
 	app.Use(logger.New())
+
 	app.Use(cors.New(cors.Config{
 		AllowOrigins:     config.ClientOrigin,
 		AllowHeaders:     "Origin, Content-Type, Accept",

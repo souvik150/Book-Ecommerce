@@ -7,14 +7,17 @@ import (
 )
 
 func BookRoutes(group fiber.Router) {
+
 	bookGroup := group.Group("/book")
-	bookGroup.Use(middleware.VendorTokenValidation)
-	bookGroup.Post("/", book.CreateBook)
-	bookGroup.Get("", book.FindBooks)
+
+	bookGroup.Get("/", book.FindBooks)
+
+	bookGroup.Post("/", middleware.TokenValidation, book.CreateBook)
+	bookGroup.Get("/my", middleware.TokenValidation, book.FindBooks)
 
 	bookGroup.Route("/:bookId", func(router fiber.Router) {
-		router.Delete("", book.DeleteBook)
 		router.Get("", book.FindBookById)
-		//router.Patch("", book.UpdateBook)
+		router.Delete("", middleware.TokenValidation, book.DeleteBook)
+		router.Patch("", middleware.TokenValidation, book.UpdateBook)
 	})
 }

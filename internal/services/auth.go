@@ -148,7 +148,7 @@ func ResendOTP(userID uuid.UUID) error {
 	body := fmt.Sprintf("Dear User,\n\nWe have resent the One-Time Password (OTP) to your email.\n\n"+
 		"OTP: %s\n\n"+
 		"This OTP is valid for a limited time only. Please keep it confidential and do not share it with anyone.\n\n"+
-		"Thank you,\nThe Notes App Team", otp)
+		"Thank you,\nThe App Team", otp)
 
 	msg := fmt.Sprintf("%s\n%s", subject, body)
 
