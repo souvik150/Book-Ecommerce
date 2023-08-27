@@ -31,6 +31,7 @@ func SignupUser(payload *models.RegisterUserSchema) error {
 		Otp:          otp,
 		CreatedAt:    time.Now(),
 		UpdatedAt:    time.Now(),
+		CartId:       uuid.Nil,
 	}
 
 	result := database.DB.Create(&newUser)

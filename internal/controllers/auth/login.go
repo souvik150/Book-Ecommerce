@@ -16,7 +16,7 @@ func LoginUser(c *fiber.Ctx) error {
 
 	user, err := services.GetUserByEmail(payload.Email)
 	if err != nil {
-		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": "Bad request"})
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": "Cant find user with this email"})
 	}
 	if user.Verified == false {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"status": "fail", "message": "Please verify your account"})
