@@ -33,10 +33,12 @@ func main() {
 
 	apiGroup := app.Group("/v1")
 
+	routes.UserRoutes(apiGroup)
 	routes.AuthRoutes(apiGroup)
 	routes.BookRoutes(apiGroup)
 	routes.CartRoutes(apiGroup)
 	routes.OrderRoutes(apiGroup)
+	routes.ReviewRoutes(apiGroup)
 
 	apiGroup.Get("/healthchecker", func(c *fiber.Ctx) error {
 		return c.Status(200).JSON(fiber.Map{

@@ -4,12 +4,11 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
 	"strconv"
-	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/database"
-	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/services"
 )
 
 func UpdateBook(c *fiber.Ctx) error {
+	// Check request body size
 	if len(c.Request().Body()) > 1*1024*1024 {
 		return c.Status(fiber.StatusRequestEntityTooLarge).JSON(fiber.Map{
 			"status":  "fail",
@@ -17,28 +16,25 @@ func UpdateBook(c *fiber.Ctx) error {
 		})
 	}
 
-	// Get book ID from the URL parameter
-	bookID := c.Params("bookID")
+	bookID := uuid.MustParse(c.Params("bookID"))
 
 	form, err := c.MultipartForm()
 	if err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": "Failed to process form data"})
 	}
 
-	bookId := c.Params("bookId")
-
-	var book models.Book
-	result := database.DB.First(&book, "id = ?", bookId)
-	if result.Error != nil {
-		return c.Status(fiber.StatusBadGateway).JSON(fiber.Map{"status": "error", "message": result.Error})
+	book, err := services.GetBookByID(bookID)
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to retrieve book data"})
 	}
 
+	// Check user authorization
 	userID := c.Locals("userID").(uuid.UUID)
 	if userID != book.UserID {
-		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"status": "fail", "message": "You are not authorized to delete this book"})
+		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"status": "fail", "message": "You are not authorized to update this book"})
 	}
 
-	// Get book data from the form
+	// Extract form values
 	isbn := form.Value["isbn"][0]
 	title := form.Value["title"][0]
 	author := form.Value["author"][0]
@@ -47,38 +43,29 @@ func UpdateBook(c *fiber.Ctx) error {
 	price := form.Value["price"][0]
 	quantity := form.Value["quantity"][0]
 
-	if isbn == "" || title == "" || author == "" || description == "" || genre == "" || price == "" || quantity == "" {
-		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": "Invalid request body"})
-	}
-
-	existingBook, err := services.GetBookById(bookID)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to retrieve book data"})
-	}
-
-	// Convert string price to float64
+	// Convert price to float64
 	priceF, err := strconv.ParseFloat(price, 64)
 	if err != nil {
 		return err
 	}
 
-	// Convert string quantity to integer
+	// Convert quantity to int
 	quantityF, err := strconv.Atoi(quantity)
 	if err != nil {
 		return err
 	}
 
 	// Update book fields
-	existingBook.ISBN = isbn
-	existingBook.Title = title
-	existingBook.Author = author
-	existingBook.Description = description
-	existingBook.Genre = genre
-	existingBook.Price = priceF
-	existingBook.Quantity = quantityF
+	book.ISBN = isbn
+	book.Title = title
+	book.Author = author
+	book.Description = description
+	book.Genre = genre
+	book.Price = priceF
+	book.Quantity = quantityF
 
-	// Save the updated book data back to the data store
-	updatedBook, err := services.UpdateBook(existingBook)
+	// Save the updated book data
+	updatedBook, err := services.UpdateBook(book)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to update book data"})
 	}

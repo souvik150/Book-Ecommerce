@@ -12,10 +12,12 @@ import (
 )
 
 func CreateBook(c *fiber.Ctx) error {
+
+	// Check if request body is valid size
 	if len(c.Request().Body()) > 1*1024*1024 {
 		return c.Status(fiber.StatusRequestEntityTooLarge).JSON(fiber.Map{
 			"status":  "fail",
-			"message": "Request body size is too large",
+			"message": "Uploaded files are too large",
 		})
 	}
 

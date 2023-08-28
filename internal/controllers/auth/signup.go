@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/log"
-	"github.com/google/uuid"
 	"mime/multipart"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/services"
@@ -72,15 +71,4 @@ func SignupUser(c *fiber.Ctx) error {
 	}
 
 	return c.Status(fiber.StatusCreated).JSON(fiber.Map{"status": "success", "message": "Account created successfully. Please verify your account."})
-}
-
-func GetUserInfo(c *fiber.Ctx) error {
-	// Get user id from context
-	userId := c.Locals("userID").(uuid.UUID)
-	user, err := services.GetUserByID(userId)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to get user details"})
-	}
-
-	return c.Status(fiber.StatusOK).JSON(fiber.Map{"status": "success", "data": user})
 }

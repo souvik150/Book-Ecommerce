@@ -28,7 +28,7 @@ func CheckoutOrder(c *fiber.Ctx) error {
 	}
 
 	for _, item := range cart.Items {
-		book, err := services.GetBookById(item.BookID.String())
+		book, err := services.GetBookByID(item.BookID)
 		if err != nil {
 			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to get book"})
 		}
@@ -72,7 +72,7 @@ func CheckoutOrder(c *fiber.Ctx) error {
 
 	// update book quantity
 	for _, item := range cart.Items {
-		book, err := services.GetBookById(item.BookID.String())
+		book, err := services.GetBookByID(item.BookID)
 		if err != nil {
 			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to get book"})
 		}
