@@ -7,6 +7,16 @@ import (
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
 )
 
+func GetAllCarts(c *fiber.Ctx) error {
+	var carts []models.Cart
+	result := database.DB.Preload("Items").Find(&carts)
+	if result.Error != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to get carts"})
+	}
+
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{"status": "success", "data": carts})
+}
+
 func GetUserCart(c *fiber.Ctx) error {
 	// Get user id from context
 	userID := c.Locals("userID").(uuid.UUID)
@@ -15,7 +25,7 @@ func GetUserCart(c *fiber.Ctx) error {
 	var cart models.Cart
 	result := database.DB.Preload("Items").Where("user_id = ?", userID).First(&cart)
 	if result.Error != nil {
-		return result.Error
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "User doesn't have a cart"})
 	}
 
 	// Calculate total price

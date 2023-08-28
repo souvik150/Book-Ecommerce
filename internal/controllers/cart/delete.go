@@ -4,29 +4,19 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/database"
-	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/services"
 )
 
 func DeleteCart(c *fiber.Ctx) error {
-	userId := c.Locals("userID").(uuid.UUID)
+	userID := c.Locals("userID").(uuid.UUID)
 
-	//find cart by cartId
-	var cart []models.Cart
-	result := database.DB.Find(&cart, "user_id = ?", userId)
-
-	//check if cart belongs to user
-	if result.Error != nil {
-		return c.Status(fiber.StatusBadGateway).JSON(fiber.Map{"status": "error", "message": result.Error})
+	// Call the service function to delete the user's cart
+	err := services.DeleteUserCart(userID)
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "error", "message": "Failed to delete cart"})
 	}
 
-	//delete cart items
-	result = database.DB.Delete(&models.CartItem{}, "cart_id = ?", cart[0].ID)
-
-	//delete cart
-	result = database.DB.Delete(&cart)
-
-	user, err := services.GetUserByID(userId)
+	user, err := services.GetUserByID(userID)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to get user details"})
 	}
@@ -35,5 +25,4 @@ func DeleteCart(c *fiber.Ctx) error {
 	database.DB.Save(&user)
 
 	return c.Status(fiber.StatusNoContent).JSON(fiber.Map{"status": "success", "message": "Cart deleted successfully"})
-
 }

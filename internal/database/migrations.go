@@ -10,7 +10,7 @@ import (
 func RunMigrations(db *gorm.DB) {
 	log.Println("Running Migrations")
 
-	err := db.AutoMigrate(&models.User{}, &models.RefreshToken{}, &models.Book{}, &models.Cart{}, &models.CartItem{})
+	err := db.AutoMigrate(&models.User{}, &models.RefreshToken{}, &models.Book{}, &models.Cart{}, &models.CartItem{}, &models.Order{})
 	if err != nil {
 		fmt.Println("Migration error")
 		return

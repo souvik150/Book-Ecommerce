@@ -12,8 +12,9 @@ type Cart struct {
 	UpdatedAt    time.Time  `gorm:"not null" json:"updated_at,omitempty"`
 	Wishlist     bool       `gorm:"not null;default:false" json:"wishlist,omitempty"`
 	SaveForLater bool       `gorm:"not null;default:false" json:"save_for_later,omitempty"`
-	Items        []CartItem `json:"items,omitempty"` // This is the relationship
+	Items        []CartItem `json:"items,omitempty"`
 	TotalCost    float64    `gorm:"type:decimal(10, 2)" json:"total_cost,omitempty"`
+	Active       bool       `gorm:"not null;default:true" json:"active"`
 }
 
 type CartItem struct {

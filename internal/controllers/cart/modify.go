@@ -25,8 +25,24 @@ func AddItemToNormalCart(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": err.Error()})
 	}
 
-	// if the user has no cart, create a new cart
+	if payload.Quantity < 1 || payload.Quantity > 5 {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": "Quantity must be greater than 0 and less than 5"})
+	}
+
+	// if the user has no active cart, create a new cart
 	if user.CartId.String() == "00000000-0000-0000-0000-000000000000" || user.CartId == uuid.Nil {
+		cart, _ := services.CreateCart(userId)
+		user.CartId = cart.ID
+
+		err := database.DB.Save(&user).Error
+		if err != nil {
+			return err
+		}
+	}
+
+	acitveCart, err := services.GetCartById(user.CartId)
+	fmt.Println(acitveCart)
+	if acitveCart.Active == false {
 		cart, _ := services.CreateCart(userId)
 		user.CartId = cart.ID
 
@@ -44,7 +60,7 @@ func AddItemToNormalCart(c *fiber.Ctx) error {
 	for _, item := range cart.Items {
 		if item.BookID == payload.BookID {
 			fmt.Println(item.Quantity)
-			item.Quantity = item.Quantity + payload.Quantity
+			item.Quantity = payload.Quantity
 			fmt.Println(item.Quantity)
 			database.DB.Save(&item)
 			return c.Status(fiber.StatusOK).JSON(fiber.Map{"status": "success", "data": "Item quantity updated"})
@@ -57,7 +73,6 @@ func AddItemToNormalCart(c *fiber.Ctx) error {
 		CartID:   user.CartId,
 	}
 
-	// Embed the cart item in the cart
 	cart.Items = append(cart.Items, cartItem)
 
 	err = database.DB.Save(&cart).Error

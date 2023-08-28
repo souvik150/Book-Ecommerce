@@ -25,6 +25,7 @@ func CartRoutes(group fiber.Router) {
 	//cartGroup.Post("/save-for-later/items/:itemId/move-to-cart", authController.MoveSaveForLaterItemToCart)
 
 	// Normal cart routes
+	cartGroup.Get("/all", cartController.GetAllCarts)
 	cartGroup.Get("/", middleware.TokenValidation, cartController.GetUserCart)
 	cartGroup.Post("/items", middleware.TokenValidation, cartController.AddItemToNormalCart)
 	cartGroup.Delete("/items", middleware.TokenValidation, cartController.DeleteCart)

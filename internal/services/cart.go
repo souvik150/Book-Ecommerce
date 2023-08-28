@@ -32,6 +32,7 @@ func CreateCart(userId uuid.UUID) (*models.Cart, error) {
 		CreatedAt: database.DB.NowFunc(),
 		UpdatedAt: database.DB.NowFunc(),
 		Items:     []models.CartItem{},
+		Active:    true,
 	}
 	result := database.DB.Create(&cart)
 	if result.Error != nil {
@@ -39,4 +40,20 @@ func CreateCart(userId uuid.UUID) (*models.Cart, error) {
 	}
 
 	return &cart, nil
+}
+
+func DeleteUserCart(userID uuid.UUID) error {
+	var cart models.Cart
+	result := database.DB.Where("user_id = ?", userID).First(&cart)
+	if result.Error != nil {
+		return result.Error
+	}
+
+	// Delete cart items
+	result = database.DB.Delete(&models.CartItem{}, "cart_id = ?", cart.ID)
+
+	// Delete cart
+	result = database.DB.Delete(&cart)
+
+	return result.Error
 }
