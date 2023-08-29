@@ -13,21 +13,31 @@ import (
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/utils"
 )
 
-func SignupUser(payload *models.RegisterUserSchema) error {
+func SignupUser(payload *models.RegisterUserSchema) (models.User, error) {
+	config, _ := config.LoadConfig(".")
+
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(payload.Password), bcrypt.DefaultCost)
 	if err != nil {
-		return err
+		return models.User{}, err
 	}
 
 	otp, _ := utils.GenerateOTP(6)
+	verified := false
+	role := "user"
+	if config.Production != true {
+		otp = "123456"
+		verified = true
+		role = payload.Role
+	}
+
 	newUser := models.User{
 		Username:     payload.Username,
 		Email:        payload.Email,
 		Password:     string(hashedPassword),
 		PhoneNumber:  payload.PhoneNumber,
 		ProfileImage: payload.ProfileImage,
-		Verified:     false,
-		Role:         payload.Role,
+		Verified:     verified,
+		Role:         role,
 		Otp:          otp,
 		CreatedAt:    time.Now(),
 		UpdatedAt:    time.Now(),
@@ -36,23 +46,24 @@ func SignupUser(payload *models.RegisterUserSchema) error {
 
 	result := database.DB.Create(&newUser)
 	if result.Error != nil {
-		return result.Error
+		return models.User{}, result.Error
 	}
 
-	body := fmt.Sprintf("Dear User,\n\nWelcome to the App! Thank you for joining us.\n\n"+
-		"To complete your registration, please enter the following One-Time Password (OTP):\n\n"+
-		"OTP: %s\n\n"+
-		"This OTP is valid for a limited time only. Please keep it confidential and do not share it with anyone.\n\n", otp)
+	if config.Production == true {
+		body := fmt.Sprintf("Dear User,\n\nWelcome to the App! Thank you for joining us.\n\n"+
+			"To complete your registration, please enter the following One-Time Password (OTP):\n\n"+
+			"OTP: %s\n\n"+
+			"This OTP is valid for a limited time only. Please keep it confidential and do not share it with anyone.\n\n", otp)
 
-	msg := fmt.Sprintf("Books App\n%s", body)
+		msg := fmt.Sprintf("Books App\n%s", body)
 
-	email, err := utils.SendEmail(payload.Email, msg)
-	if err != nil {
-		return err
+		_, err := utils.SendEmail(payload.Email, msg)
+		if err != nil {
+			return models.User{}, err
+		}
 	}
-	fmt.Println(email)
 
-	return nil
+	return newUser, nil
 }
 
 func LoginUser(payload *models.LoginUserSchema) (models.AuthResponse, error) {
@@ -184,18 +195,12 @@ func RefreshAccessToken(payload *models.RefreshTokenSchema) (models.AuthResponse
 		return models.AuthResponse{}, fiber.NewError(fiber.StatusUnauthorized, "Invalid refresh token")
 	}
 
-	// Generate a new access token
-	userIDStr, ok := claims["userID"].(string)
-	if !ok {
-		return models.AuthResponse{}, fiber.NewError(fiber.StatusUnauthorized, "Invalid refresh token")
-	}
-	userID, err := uuid.Parse(userIDStr)
-	if err != nil {
-		return models.AuthResponse{}, fiber.NewError(fiber.StatusUnauthorized, "Invalid refresh token")
-	}
-
 	var user models.User
-	user.ID = userID
+	user, err = GetUserByID(refreshTokenEntry.UserID)
+	if err != nil {
+		return models.AuthResponse{}, fiber.NewError(fiber.StatusInternalServerError, "Failed to get user")
+	}
+	fmt.Println(user)
 	accessToken, err := utils.GenerateAccessToken(&user)
 	if err != nil {
 		return models.AuthResponse{}, fiber.NewError(fiber.StatusInternalServerError, "Failed to generate access token")
@@ -205,6 +210,7 @@ func RefreshAccessToken(payload *models.RefreshTokenSchema) (models.AuthResponse
 		UserID:       user.ID,
 		AccessToken:  accessToken,
 		RefreshToken: payload.RefreshToken,
+		Verified:     user.Verified,
 	}
 
 	return authResponse, nil

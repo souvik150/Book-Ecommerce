@@ -32,9 +32,10 @@ func main() {
 	}))
 
 	apiGroup := app.Group("/v1")
-
-	routes.UserRoutes(apiGroup)
+	
 	routes.AuthRoutes(apiGroup)
+	routes.UserRoutes(apiGroup)
+	routes.VendorRoutes(apiGroup)
 	routes.BookRoutes(apiGroup)
 	routes.CartRoutes(apiGroup)
 	routes.OrderRoutes(apiGroup)

@@ -16,7 +16,7 @@
 .DS_Store
 TODO.md
 logs.txt
-.idea/
+../.idea/
 secret.md
 # .env
 tmp

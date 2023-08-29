@@ -27,6 +27,7 @@ func TokenValidation(c *fiber.Ctx) error {
 	}
 
 	userIDStr, ok := claims["userID"].(string)
+	role, ok := claims["role"].(string)
 	if !ok {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"status": "fail", "message": "Invalid access token"})
 	}
@@ -38,6 +39,7 @@ func TokenValidation(c *fiber.Ctx) error {
 
 	// Pass the authenticated user ID and user role to the context
 	c.Locals("userID", userID)
+	c.Locals("role", role)
 
 	return c.Next()
 }

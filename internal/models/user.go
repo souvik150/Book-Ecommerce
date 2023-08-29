@@ -31,7 +31,7 @@ type RegisterUserSchema struct {
 	Username          string `json:"username" validate:"required"`
 	Email             string `json:"email" validate:"required,email"`
 	Password          string `json:"password" validate:"required"`
-	ProfileImage      string `json:"pic" validate:"required"`
+	ProfileImage      string `json:"pic"`
 	PhoneNumber       string `json:"phone_number" validate:"required"`
 	EmailSubscription bool   `json:"email_subscription"`
 	Role              string `json:"role" validate:"required,oneof=user admin vendor"`
@@ -54,7 +54,7 @@ type UpdateUserSchema struct {
 	ProfileImage      string `json:"pic,omitempty"`
 	PhoneNumber       string `json:"phone_number,omitempty"`
 	EmailSubscription bool   `json:"email_subscription,omitempty"`
-	Role              string `json:"role,omitempty" validate:"omitempty,oneof=user admin vendor"`
+	Role              string `json:"role,omitempty" validate:"omitempty,oneof=user admin vendor pending"`
 }
 
 type AuthResponse struct {

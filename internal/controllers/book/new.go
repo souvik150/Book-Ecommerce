@@ -28,6 +28,11 @@ func CreateBook(c *fiber.Ctx) error {
 
 	// Get the user ID from the authenticated user (adjust according to your authentication logic)
 	userID := c.Locals("userID").(uuid.UUID)
+	userRole := c.Locals("role").(string)
+
+	if userRole == "user" {
+		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"status": "fail", "message": "Only vendors can create books"})
+	}
 
 	// Get book data from the form
 	isbn := form.Value["isbn"][0]

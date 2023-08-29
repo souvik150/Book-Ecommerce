@@ -5,12 +5,15 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/log"
 	"mime/multipart"
+	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/config"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/services"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/utils"
 )
 
 func SignupUser(c *fiber.Ctx) error {
+	config, _ := config.LoadConfig(".")
+
 	form, err := c.MultipartForm()
 	if err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": "Failed to process form data"})
@@ -21,7 +24,7 @@ func SignupUser(c *fiber.Ctx) error {
 	email := form.Value["email"][0]
 	password := form.Value["password"][0]
 	phoneNo := form.Value["phone_number"][0]
-	role := "user"
+	role := form.Value["role"][0]
 
 	if username == "" || email == "" || password == "" || phoneNo == "" {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": "Invalid request body"})
@@ -64,11 +67,14 @@ func SignupUser(c *fiber.Ctx) error {
 		Role:         role,
 	}
 
-	err = services.SignupUser(payload)
+	usr, err := services.SignupUser(payload)
 	if err != nil {
 		// Handle error
 		log.Fatal(err)
 	}
 
+	if config.Production != true {
+		return c.Status(fiber.StatusCreated).JSON(fiber.Map{"status": "success", "message": "procees to /login to get token", "testUser": usr})
+	}
 	return c.Status(fiber.StatusCreated).JSON(fiber.Map{"status": "success", "message": "Account created successfully. Please verify your account."})
 }

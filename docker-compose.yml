@@ -23,6 +23,5 @@ services:
       - "80:80"
     depends_on:
       - api
-    restart: always
 volumes:
   progresDB:

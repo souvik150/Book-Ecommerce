@@ -42,6 +42,15 @@ func GetUserByEmail(email string) (models.User, error) {
 	return user, nil
 }
 
+func GetUsersByRole(role string) ([]models.User, error) {
+	var users []models.User
+	result := database.DB.Where("role = ?", role).Find(&users)
+	if result.Error != nil {
+		return []models.User{}, result.Error
+	}
+	return users, nil
+}
+
 func UpdateUser(user models.User) (models.User, error) {
 
 	result := database.DB.Save(&user)
