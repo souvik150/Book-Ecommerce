@@ -64,6 +64,8 @@ func CheckoutOrder(c *fiber.Ctx) error {
 	}
 	user.BooksBought = books
 
+	fmt.Println(user.BooksBought)
+
 	err = database.DB.Save(&user).Error
 
 	if err != nil {

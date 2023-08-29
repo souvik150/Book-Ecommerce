@@ -64,6 +64,25 @@ func GetBooksPaginated(page, limit int) ([]models.Book, error) {
 	return books, nil
 }
 
+func GetBooksByTitleOrAuthor(title string, author string) ([]models.Book, error) {
+	var books []models.Book
+
+	// Check if title or name query parameter is provided
+	if title != "" {
+		result := database.DB.Where("title LIKE ?", "%"+title+"%").Find(&books)
+		if result.Error != nil {
+			return nil, result.Error
+		}
+	} else {
+		result := database.DB.Where("author LIKE ?", "%"+author+"%").Find(&books)
+		if result.Error != nil {
+			return nil, result.Error
+		}
+	}
+
+	return books, nil
+}
+
 func GetBookByID(bookID uuid.UUID) (*models.Book, error) {
 	var book models.Book
 	if err := database.DB.First(&book, "id = ?", bookID).Error; err != nil {

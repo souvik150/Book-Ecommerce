@@ -13,13 +13,22 @@ import (
 func FindAllBooks(c *fiber.Ctx) error {
 	page := c.Query("page", "1")
 	limit := c.Query("limit", "10")
+	title := c.Query("title", "")
+	author := c.Query("author", "")
 
 	intPage, _ := strconv.Atoi(page)
 	intLimit, _ := strconv.Atoi(limit)
 
-	books, err := services.GetBooksPaginated(intPage, intLimit)
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "error", "message": err.Error()})
+	var books []models.Book
+
+	// Check if title or name query parameter is provided
+
+	if title != "" || author != "" {
+		// Call a function to retrieve books by title or name, passing the appropriate parameters
+		books, _ = services.GetBooksByTitleOrAuthor(title, author)
+	} else {
+		// Call the existing function to get all books paginated
+		books, _ = services.GetBooksPaginated(intPage, intLimit)
 	}
 
 	bookResponses := bookSchema.MapBooksToResponse(books)

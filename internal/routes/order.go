@@ -14,7 +14,7 @@ func OrderRoutes(group fiber.Router) {
 	orderGroup.Post("/", middleware.TokenValidation, order.CreateOrder)
 
 	orderGroup.Route("/:orderId", func(router fiber.Router) {
-		router.Patch("", middleware.TokenValidation, order.UpdateOrder)
+		router.Get("", middleware.TokenValidation, order.GetOrderByID)
 		//router.Delete("", middleware.TokenValidation, order.DeleteOrder)
 		//router.Post("/cancel", middleware.TokenValidation, order.CancelOrder)
 		router.Post("/checkout", middleware.TokenValidation, order.CheckoutOrder)
