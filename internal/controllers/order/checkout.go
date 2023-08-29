@@ -5,11 +5,20 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
 	"github.com/lib/pq"
+	razorpay "github.com/razorpay/razorpay-go"
+	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/config"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/database"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/services"
 )
 
 func CheckoutOrder(c *fiber.Ctx) error {
+	config, err := config.LoadConfig(".")
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to load environment variables"})
+	}
+
+	client := razorpay.NewClient(config.RazorPayKey, config.RazorPaySecret)
+
 	userId := c.Locals("userID").(uuid.UUID)
 	orderId := c.Params("orderId")
 
@@ -19,6 +28,13 @@ func CheckoutOrder(c *fiber.Ctx) error {
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to get order"})
 	}
+
+	data := map[string]interface{}{
+		"amount":   order.TotalCost * 100,
+		"currency": "INR",
+		"receipt":  order.ID.String(),
+	}
+	body, err := client.Order.Create(data, nil)
 
 	// check items in the cart of the order and check if they are still available
 	fmt.Println(userId)
@@ -93,5 +109,5 @@ func CheckoutOrder(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to update order"})
 	}
 
-	return c.Status(fiber.StatusOK).JSON(fiber.Map{"status": "success", "message": "Order checked out successfully"})
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{"status": "success", "message": "Order checked out successfully", "data": body})
 }

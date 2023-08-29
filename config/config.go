@@ -24,6 +24,8 @@ type Config struct {
 	Email              string        `mapstructure:"EMAIL_ID"`
 	EmailPassword      string        `mapstructure:"EMAIL_PASSWORD"`
 	Production         bool          `mapstructure:"PRODUCTION"`
+	RazorPayKey        string        `mapstructure:"RAZORPAY_KEY_ID"`
+	RazorPaySecret     string        `mapstructure:"RAZORPAY_KEY_SECRET"`
 }
 
 func LoadConfig(path string) (config Config, err error) {

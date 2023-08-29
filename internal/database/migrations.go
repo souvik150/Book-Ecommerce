@@ -18,6 +18,7 @@ func RunMigrations(db *gorm.DB) {
 		&models.CartItem{},
 		&models.Order{},
 		&models.Review{},
+		&models.Payment{},
 	)
 	if err != nil {
 		fmt.Println("Migration error")
