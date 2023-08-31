@@ -1,0 +1,3782 @@
+{
+	"info": {
+		"_postman_id": "aa3cd05b-1f83-42a9-8824-e8d95888eb9a",
+		"name": "Book Store API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "19816367",
+		"_collection_link": "https://dark-escape-448662.postman.co/workspace/My-Workspace~d9962c60-d293-431f-86ab-9ea1fbca86fd/collection/19816367-aa3cd05b-1f83-42a9-8824-e8d95888eb9a?action=share&source=collection_link&creator=19816367"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "souvik150",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "souvikmukherjee150@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "test1234",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "+917330787625",
+									"type": "text"
+								},
+								{
+									"key": "pic",
+									"type": "file",
+									"src": "/home/souvik150/TechTalks-3.0/frontend/src/Images/TechTalks.png"
+								},
+								{
+									"key": "role",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "user",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": "{{url}}/auth/signup"
+					},
+					"response": [
+						{
+							"name": "Signup Dev Mode",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "souvik150",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "admin2@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "test1234",
+											"type": "text"
+										},
+										{
+											"key": "phone_number",
+											"value": "+917330787625",
+											"type": "text"
+										},
+										{
+											"key": "pic",
+											"type": "file",
+											"src": "/home/souvik150/TechTalks-3.0/frontend/src/Images/TechTalks.png"
+										},
+										{
+											"key": "role",
+											"value": "admin",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "user",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": "{{url}}/auth/signup"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 19:43:34 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "526"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"procees to /login to get token\",\n    \"status\": \"success\",\n    \"testUser\": {\n        \"id\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n        \"email\": \"admin2@gmail.com\",\n        \"username\": \"souvik150\",\n        \"role\": \"admin\",\n        \"phone_number\": \"+917330787625\",\n        \"verified\": true,\n        \"otp\": \"123456\",\n        \"email_subscription\": true,\n        \"created_at\": \"2023-08-29T19:43:34.828514385Z\",\n        \"updated_at\": \"2023-08-29T19:43:34.828517248Z\",\n        \"cart_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"wishlist_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"save_for_later_id\": \"00000000-0000-0000-0000-000000000000\"\n    }\n}"
+						},
+						{
+							"name": "Signup Prod Mode",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "souvik150",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "souvikmukherjee150@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "test1234",
+											"type": "text"
+										},
+										{
+											"key": "phone_number",
+											"value": "+917330787625",
+											"type": "text"
+										},
+										{
+											"key": "pic",
+											"type": "file",
+											"src": "/home/souvik150/TechTalks-3.0/frontend/src/Images/TechTalks.png"
+										},
+										{
+											"key": "role",
+											"value": "admin",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "user",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": "{{url}}/auth/signup"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 20:33:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "90"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Account created successfully. Please verify your account.\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"souvikmukherjee150@gmail.com\",\n    \"password\": \"test1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/auth/login"
+					},
+					"response": [
+						{
+							"name": "Successful Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"admin2@gmail.com\",\n    \"password\": \"test1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/auth/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 19:43:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "721"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"authResponse\": {\n            \"userId\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n            \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkQXQiOjE2OTMzMzgyMTQsImVtYWlsIjoiYWRtaW4yQGdtYWlsLmNvbSIsImV4cCI6MTY5MzQyNDYyOSwicm9sZSI6ImFkbWluIiwidXNlcklEIjoiYTgxMTg4NTMtMWNlZC00YmI1LWFlZjUtZWNjN2VmYjIyMTA5IiwidXNlcm5hbWUiOiJzb3V2aWsxNTAifQ.bNjgx8PztjmEBiiVzy3CZygbUJ3iZoXgYJKimCI3jXU\",\n            \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkQXQiOjE2OTMzMzgyMTQsImVtYWlsIjoiYWRtaW4yQGdtYWlsLmNvbSIsImV4cCI6MTY5NTkzMDIyOSwicm9sZSI6ImFkbWluIiwidXNlcklEIjoiYTgxMTg4NTMtMWNlZC00YmI1LWFlZjUtZWNjN2VmYjIyMTA5IiwidXNlcm5hbWUiOiJzb3V2aWsxNTAifQ.QkoDB_5DU92yTR1cwKWIprPjTrVHYAtYFCnlepUnTR0\",\n            \"verified\": true\n        }\n    },\n    \"status\": \"success\"\n}"
+						},
+						{
+							"name": "Invalid Credentials",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"admin2@gmail.com\",\n    \"password\": \"test12\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/auth/login"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 19:59:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid credentials\",\n    \"status\": \"fail\"\n}"
+						},
+						{
+							"name": "Inactive (Deleted Account)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"admin2@gmail.com\",\n    \"password\": \"test1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/auth/login"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 19:57:42 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Your account is inactive\",\n    \"status\": \"fail\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Refresh Access Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkQXQiOjE2OTMzMzgyMTQsImVtYWlsIjoiYWRtaW4yQGdtYWlsLmNvbSIsImV4cCI6MTY5NTkzMDIyOSwicm9sZSI6ImFkbWluIiwidXNlcklEIjoiYTgxMTg4NTMtMWNlZC00YmI1LWFlZjUtZWNjN2VmYjIyMTA5IiwidXNlcm5hbWUiOiJzb3V2aWsxNTAifQ.QkoDB_5DU92yTR1cwKWIprPjTrVHYAtYFCnlepUnTR0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/auth/refresh"
+					},
+					"response": [
+						{
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkQXQiOjE2OTMzMzgyMTQsImVtYWlsIjoiYWRtaW4yQGdtYWlsLmNvbSIsImV4cCI6MTY5NTkzMDIyOSwicm9sZSI6ImFkbWluIiwidXNlcklEIjoiYTgxMTg4NTMtMWNlZC00YmI1LWFlZjUtZWNjN2VmYjIyMTA5IiwidXNlcm5hbWUiOiJzb3V2aWsxNTAifQ.QkoDB_5DU92yTR1cwKWIprPjTrVHYAtYFCnlepUnTR0\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/auth/refresh"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 19:46:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "721"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"authResponse\": {\n            \"userId\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n            \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkQXQiOjE2OTMzMzgyMTQsImVtYWlsIjoiYWRtaW4yQGdtYWlsLmNvbSIsImV4cCI6MTY5MzQyNDc5MCwicm9sZSI6ImFkbWluIiwidXNlcklEIjoiYTgxMTg4NTMtMWNlZC00YmI1LWFlZjUtZWNjN2VmYjIyMTA5IiwidXNlcm5hbWUiOiJzb3V2aWsxNTAifQ.5pjvIdh6CzE_mhMGeyyMKGlPo2IhKGpgHaGwzDdve9c\",\n            \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkQXQiOjE2OTMzMzgyMTQsImVtYWlsIjoiYWRtaW4yQGdtYWlsLmNvbSIsImV4cCI6MTY5NTkzMDIyOSwicm9sZSI6ImFkbWluIiwidXNlcklEIjoiYTgxMTg4NTMtMWNlZC00YmI1LWFlZjUtZWNjN2VmYjIyMTA5IiwidXNlcm5hbWUiOiJzb3V2aWsxNTAifQ.QkoDB_5DU92yTR1cwKWIprPjTrVHYAtYFCnlepUnTR0\",\n            \"verified\": true\n        }\n    },\n    \"status\": \"success\"\n}"
+						},
+						{
+							"name": "Error If Refresh Token not present",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkQXQiOjE2OTMzMzgyMTQsImVtYWlsIjoiYWRtaW4yQGdtYWlsLmNvbSIsImV4cCI6MTY5MzQyNDYyOSwicm9sZSI6ImFkbWluIiwidXNlcklEIjoiYTgxMTg4NTMtMWNlZC00YmI1LWFlZjUtZWNjN2VmYjIyMTA5IiwidXNlcm5hbWUiOiJzb3V2aWsxNTAifQ.bNjgx8PztjmEBiiVzy3CZygbUJ3iZoXgYJKimCI3jXU\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/auth/refresh"
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 19:46:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Failed to refresh access token\",\n    \"status\": \"error\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Verify User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"souvikmukherjee150@gmail.com\",\n    \"otp\":\"915401\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/auth/verify"
+					},
+					"response": [
+						{
+							"name": "Successfully Verified",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"souvikmukherjee150@gmail.com\",\n    \"otp\":\"607901\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/auth/verify"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 20:34:12 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "750"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"authResponse\": {\n            \"userId\": \"cf8dc151-c89b-41cb-97a5-6db96e222b8f\",\n            \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkQXQiOjE2OTMzNDExODEsImVtYWlsIjoic291dmlrbXVraGVyamVlMTUwQGdtYWlsLmNvbSIsImV4cCI6MTY5MzQyNzY1Miwicm9sZSI6InVzZXIiLCJ1c2VySUQiOiJjZjhkYzE1MS1jODliLTQxY2ItOTdhNS02ZGI5NmUyMjJiOGYiLCJ1c2VybmFtZSI6InNvdXZpazE1MCJ9.HcPuJax1pd5IIERnJII4isYb7twzbqtJ7mCOLgR1WXE\",\n            \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkQXQiOjE2OTMzNDExODEsImVtYWlsIjoic291dmlrbXVraGVyamVlMTUwQGdtYWlsLmNvbSIsImV4cCI6MTY5NTkzMzI1Miwicm9sZSI6InVzZXIiLCJ1c2VySUQiOiJjZjhkYzE1MS1jODliLTQxY2ItOTdhNS02ZGI5NmUyMjJiOGYiLCJ1c2VybmFtZSI6InNvdXZpazE1MCJ9.MRaBCJoryTefAv02e8GW-FmZBzP1NXgIP3ohpuo3fZc\",\n            \"verified\": false\n        }\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Resend OTP",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"souvik.mukherjee2021@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/auth/resend"
+					},
+					"response": [
+						{
+							"name": "User Already Verified",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"souvikmukherjee150@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/auth/resend"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 20:34:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User is already verified\",\n    \"status\": \"success\"\n}"
+						},
+						{
+							"name": "Success Resent",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"souvik.mukherjee2021@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/auth/resend"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 20:35:12 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"OTP resent successfully\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{url}}/user/me/delete"
+					},
+					"response": [
+						{
+							"name": "Success Delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{url}}/user/me/delete"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 19:45:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "58"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User deleted successfully\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get me",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/user/me"
+					},
+					"response": [
+						{
+							"name": "Get me",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url}}/user/me"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 20:01:14 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "473"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n        \"email\": \"admin2@gmail.com\",\n        \"username\": \"souvik150\",\n        \"role\": \"admin\",\n        \"phone_number\": \"+917330787625\",\n        \"verified\": true,\n        \"otp\": \"123456\",\n        \"email_subscription\": true,\n        \"created_at\": \"2023-08-29T19:43:34.828514Z\",\n        \"updated_at\": \"2023-08-29T19:45:11.880936Z\",\n        \"cart_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"wishlist_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"save_for_later_id\": \"00000000-0000-0000-0000-000000000000\"\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reactivate Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"admin2@gmail.com\",\n    \"password\": \"test1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/user/me/activate"
+					},
+					"response": [
+						{
+							"name": "Invalid Creds",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"admin2@gmail.com\",\n    \"password\": \"test14\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/user/me/activate"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 20:30:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid credentials\",\n    \"status\": \"fail\"\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"admin2@gmail.com\",\n    \"password\": \"test1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/user/me/activate"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 20:30:59 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User reactivated successfully\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Add book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "isbn",
+									"value": "rgtstgt-hfuhthdtg-uushrsjrgns",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "new",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "rgsrgsr",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "this is desc",
+									"type": "text"
+								},
+								{
+									"key": "genre",
+									"value": "education",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "30",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "cover_images",
+									"type": "file",
+									"src": [
+										"/home/souvik150/Souvik/VIT-Events/ieee/public/images/speakers/speaker.png",
+										"/home/souvik150/Souvik/VIT-Events/ieee/public/Tokunbo.png"
+									]
+								},
+								{
+									"key": "sample",
+									"type": "file",
+									"src": "/home/souvik150/Downloads/53-sign.jpeg"
+								},
+								{
+									"key": "full_text",
+									"type": "file",
+									"src": "/home/souvik150/Downloads/vladimir-brusic.jpg"
+								}
+							]
+						},
+						"url": "{{url}}/book"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "isbn",
+											"value": "rgtstgt-hutf-uushrsjrgns",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "hello",
+											"type": "text"
+										},
+										{
+											"key": "author",
+											"value": "souvik",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "this is desc",
+											"type": "text"
+										},
+										{
+											"key": "genre",
+											"value": "education",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "30",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "6",
+											"type": "text"
+										},
+										{
+											"key": "cover_images",
+											"type": "file",
+											"src": "/home/souvik150/Downloads/53-sign.jpeg"
+										},
+										{
+											"key": "sample",
+											"type": "file",
+											"src": "/home/souvik150/Downloads/er-digram-v2.pdf"
+										},
+										{
+											"key": "full_text",
+											"type": "file",
+											"src": "/home/souvik150/Downloads/7lQxILo_.pdf"
+										}
+									]
+								},
+								"url": "{{url}}/book"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 20:31:42 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "569"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"book\": {\n            \"id\": \"1b26987d-3bae-4281-bf96-ed31333402ca\",\n            \"isbn\": \"rgtstgt-hutf-uushrsjrgns\",\n            \"title\": \"hello\",\n            \"author\": \"souvik\",\n            \"description\": \"this is desc\",\n            \"price\": 30,\n            \"quantity\": 6,\n            \"genre\": \"education\",\n            \"full_text\": \"https://mynotesgoapp.s3.amazonaws.com/7lQxILo_.pdf\",\n            \"cover_images\": \"[\\\"https://mynotesgoapp.s3.amazonaws.com/53-sign.jpeg\\\"]\",\n            \"sample\": \"https://mynotesgoapp.s3.amazonaws.com/er-digram-v2.pdf\",\n            \"user_id\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n            \"created_at\": \"2023-08-29T20:31:42.440359886Z\",\n            \"updated_at\": \"2023-08-29T20:31:42.440359886Z\"\n        }\n    },\n    \"status\": \"success\"\n}"
+						},
+						{
+							"name": "Error Duplicate Book",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "isbn",
+											"value": "rgtstgt-hutf-uushrsjrgns",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "hello",
+											"type": "text"
+										},
+										{
+											"key": "author",
+											"value": "souvik",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "this is desc",
+											"type": "text"
+										},
+										{
+											"key": "genre",
+											"value": "education",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "30",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "6",
+											"type": "text"
+										},
+										{
+											"key": "cover_images",
+											"type": "file",
+											"src": "/home/souvik150/Downloads/53-sign.jpeg"
+										},
+										{
+											"key": "sample",
+											"type": "file",
+											"src": "/home/souvik150/Downloads/er-digram-v2.pdf"
+										},
+										{
+											"key": "full_text",
+											"type": "file",
+											"src": "/home/souvik150/Downloads/7lQxILo_.pdf"
+										}
+									]
+								},
+								"url": "{{url}}/book"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 20:36:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Book with same ISBN already exists\",\n    \"status\": \"fail\"\n}"
+						},
+						{
+							"name": "Not Authorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "isbn",
+											"value": "rgtstgt-rgtssrr-uushrsjrgns",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "new",
+											"type": "text"
+										},
+										{
+											"key": "author",
+											"value": "rgsrgsr",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "this is desc",
+											"type": "text"
+										},
+										{
+											"key": "genre",
+											"value": "education",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "30",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "20",
+											"type": "text"
+										},
+										{
+											"key": "cover_images",
+											"type": "file",
+											"src": "/home/souvik150/Downloads/53-sign.jpeg"
+										},
+										{
+											"key": "sample",
+											"type": "file",
+											"src": "/home/souvik150/Downloads/er-digram-v2.pdf"
+										},
+										{
+											"key": "full_text",
+											"type": "file",
+											"src": "/home/souvik150/Downloads/7lQxILo_.pdf"
+										}
+									]
+								},
+								"url": "{{url}}/book"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 30 Aug 2023 14:00:20 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Only vendors can create books\",\n    \"status\": \"fail\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/book?page=1&limit=10&title=&author=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"book"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "title",
+									"value": ""
+								},
+								{
+									"key": "author",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Books (type 1)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/book?page=1&limit=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"book"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 20:37:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "232"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"books\": [\n        {\n            \"id\": \"1b26987d-3bae-4281-bf96-ed31333402ca\",\n            \"title\": \"hello\",\n            \"author\": \"souvik\",\n            \"description\": \"this is desc\",\n            \"price\": 30,\n            \"cover_images\": [\n                \"https://mynotesgoapp.s3.amazonaws.com/53-sign.jpeg\"\n            ]\n        }\n    ],\n    \"results\": 1,\n    \"status\": \"success\"\n}"
+						},
+						{
+							"name": "Get All Books (type 2)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/book?page=1&limit=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"book"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 20:37:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "421"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"books\": [\n        {\n            \"id\": \"1b26987d-3bae-4281-bf96-ed31333402ca\",\n            \"title\": \"hello\",\n            \"author\": \"souvik\",\n            \"description\": \"this is desc\",\n            \"price\": 30,\n            \"cover_images\": [\n                \"https://mynotesgoapp.s3.amazonaws.com/53-sign.jpeg\"\n            ]\n        },\n        {\n            \"id\": \"0c560215-8d24-483c-9729-14f0a3d4a448\",\n            \"title\": \"new\",\n            \"author\": \"rgsrgsr\",\n            \"description\": \"this is desc\",\n            \"price\": 30,\n            \"cover_images\": [\n                \"https://mynotesgoapp.s3.amazonaws.com/53-sign.jpeg\"\n            ]\n        }\n    ],\n    \"results\": 2,\n    \"status\": \"success\"\n}"
+						},
+						{
+							"name": "Get All Books (type 3)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/book?page=1&limit=10&title=he&name",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"book"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "title",
+											"value": "he"
+										},
+										{
+											"key": "name",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 20:58:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "232"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"books\": [\n        {\n            \"id\": \"1b26987d-3bae-4281-bf96-ed31333402ca\",\n            \"title\": \"hello\",\n            \"author\": \"souvik\",\n            \"description\": \"this is desc\",\n            \"price\": 30,\n            \"cover_images\": [\n                \"https://mynotesgoapp.s3.amazonaws.com/53-sign.jpeg\"\n            ]\n        }\n    ],\n    \"results\": 1,\n    \"status\": \"success\"\n}"
+						},
+						{
+							"name": "Get All Books (type 4)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/book?page=1&limit=10&title=&author=vik",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"book"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "title",
+											"value": ""
+										},
+										{
+											"key": "author",
+											"value": "vik"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 21:11:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "232"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"books\": [\n        {\n            \"id\": \"1b26987d-3bae-4281-bf96-ed31333402ca\",\n            \"title\": \"hello\",\n            \"author\": \"souvik\",\n            \"description\": \"this is desc\",\n            \"price\": 30,\n            \"cover_images\": [\n                \"https://mynotesgoapp.s3.amazonaws.com/53-sign.jpeg\"\n            ]\n        }\n    ],\n    \"results\": 1,\n    \"status\": \"success\"\n}"
+						},
+						{
+							"name": "Get All Books (type 5)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/book?page=1&limit=10&title=&author=so",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"book"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "title",
+											"value": ""
+										},
+										{
+											"key": "author",
+											"value": "so"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 21:11:42 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "232"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"books\": [\n        {\n            \"id\": \"1b26987d-3bae-4281-bf96-ed31333402ca\",\n            \"title\": \"hello\",\n            \"author\": \"souvik\",\n            \"description\": \"this is desc\",\n            \"price\": 30,\n            \"cover_images\": [\n                \"https://mynotesgoapp.s3.amazonaws.com/53-sign.jpeg\"\n            ]\n        }\n    ],\n    \"results\": 1,\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get BookByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/book/:bookId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"book",
+								":bookId"
+							],
+							"variable": [
+								{
+									"key": "bookId",
+									"value": "1b26987d-3bae-4281-bf96-ed31333402ca"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get BookByID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/book/:bookId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"book",
+										":bookId"
+									],
+									"variable": [
+										{
+											"key": "bookId",
+											"value": "1b26987d-3bae-4281-bf96-ed31333402ca"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 21:31:31 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "333"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"book\": {\n        \"id\": \"1b26987d-3bae-4281-bf96-ed31333402ca\",\n        \"isbn\": \"rgtstgt-hutf-uushrsjrgns\",\n        \"title\": \"hello\",\n        \"author\": \"souvik\",\n        \"description\": \"this is desc\",\n        \"price\": 30,\n        \"genre\": \"education\",\n        \"user_id\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n        \"cover_images\": [\n            \"https://mynotesgoapp.s3.amazonaws.com/53-sign.jpeg\"\n        ]\n    },\n    \"reviews\": [],\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get My Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/book/my"
+					},
+					"response": [
+						{
+							"name": "Download Purchased Book",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url}}/book/my"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 22:10:48 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "572"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"books\": [\n        {\n            \"id\": \"706250cd-9bfc-43bc-b7e9-a17e74acfdaf\",\n            \"isbn\": \"rgtstgt-rgtssrr-uushrsjrgns\",\n            \"title\": \"new\",\n            \"author\": \"rgsrgsr\",\n            \"description\": \"this is desc\",\n            \"price\": 30,\n            \"quantity\": 18,\n            \"genre\": \"education\",\n            \"full_text\": \"https://mynotesgoapp.s3.amazonaws.com/7lQxILo_.pdf\",\n            \"cover_images\": \"[\\\"https://mynotesgoapp.s3.amazonaws.com/53-sign.jpeg\\\"]\",\n            \"sample\": \"https://mynotesgoapp.s3.amazonaws.com/er-digram-v2.pdf\",\n            \"user_id\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n            \"created_at\": \"2023-08-29T22:06:28.946445Z\",\n            \"updated_at\": \"2023-08-29T22:10:22.826558Z\"\n        }\n    ],\n    \"results\": 1,\n    \"status\": \"success\"\n}"
+						},
+						{
+							"name": "No Books Purchased",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url}}/book/my"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 21:31:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"books\": [],\n    \"results\": 0,\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Book",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/book/:bookId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"book",
+								":bookId"
+							],
+							"variable": [
+								{
+									"key": "bookId",
+									"value": "67cd485e-fc0a-4d3a-866a-557a3b4092fc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update book",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "isbn",
+									"value": "fef31-eafe0rfr",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "new title",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "souvik",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "this is desc",
+									"type": "text"
+								},
+								{
+									"key": "genre",
+									"value": "education",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "69",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/book/:bookId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"book",
+								":bookId"
+							],
+							"variable": [
+								{
+									"key": "bookId",
+									"value": "1b26987d-3bae-4281-bf96-ed31333402ca"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update book",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "isbn",
+											"value": "fef31-eafe0rfr",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "new title",
+											"type": "text"
+										},
+										{
+											"key": "author",
+											"value": "souvik",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "this is desc",
+											"type": "text"
+										},
+										{
+											"key": "genre",
+											"value": "education",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "69",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "4",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/book/:bookId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"book",
+										":bookId"
+									],
+									"variable": [
+										{
+											"key": "bookId",
+											"value": "1b26987d-3bae-4281-bf96-ed31333402ca"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 21:32:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "560"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"book\": {\n            \"id\": \"1b26987d-3bae-4281-bf96-ed31333402ca\",\n            \"isbn\": \"fef31-eafe0rfr\",\n            \"title\": \"new title\",\n            \"author\": \"souvik\",\n            \"description\": \"this is desc\",\n            \"price\": 69,\n            \"quantity\": 4,\n            \"genre\": \"education\",\n            \"full_text\": \"https://mynotesgoapp.s3.amazonaws.com/7lQxILo_.pdf\",\n            \"cover_images\": \"[\\\"https://mynotesgoapp.s3.amazonaws.com/53-sign.jpeg\\\"]\",\n            \"sample\": \"https://mynotesgoapp.s3.amazonaws.com/er-digram-v2.pdf\",\n            \"user_id\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n            \"created_at\": \"2023-08-29T20:31:42.440359Z\",\n            \"updated_at\": \"2023-08-29T21:32:07.327176085Z\"\n        }\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Add Items to Cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"book_id\":\"c71d23cc-210a-4fdb-afff-0f2c8d114b5e\",\n    \"quantity\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/cart/items"
+					},
+					"response": [
+						{
+							"name": "Success First Item",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"book_id\":\"1b26987d-3bae-4281-bf96-ed31333402ca\",\n    \"quantity\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/cart/items"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 21:33:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "402"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"1d738a1e-7525-41d4-a8ad-2dfd8f4c1df4\",\n        \"user_id\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n        \"created_at\": \"2023-08-29T21:33:19.562896Z\",\n        \"updated_at\": \"2023-08-29T21:33:19.566816008Z\",\n        \"items\": [\n            {\n                \"cart_item_id\": \"1f734265-093f-41ac-bd7b-384ab1f8799f\",\n                \"book_id\": \"1b26987d-3bae-4281-bf96-ed31333402ca\",\n                \"cart_id\": \"1d738a1e-7525-41d4-a8ad-2dfd8f4c1df4\",\n                \"quantity\": 2\n            }\n        ],\n        \"active\": true\n    },\n    \"status\": \"success\"\n}"
+						},
+						{
+							"name": "Success Add More Items",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"book_id\":\"0c560215-8d24-483c-9729-14f0a3d4a448\",\n    \"quantity\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/cart/items"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 21:35:16 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "569"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"1d738a1e-7525-41d4-a8ad-2dfd8f4c1df4\",\n        \"user_id\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n        \"created_at\": \"2023-08-29T21:33:19.562896Z\",\n        \"updated_at\": \"2023-08-29T21:35:16.109815605Z\",\n        \"items\": [\n            {\n                \"cart_item_id\": \"1f734265-093f-41ac-bd7b-384ab1f8799f\",\n                \"book_id\": \"1b26987d-3bae-4281-bf96-ed31333402ca\",\n                \"cart_id\": \"1d738a1e-7525-41d4-a8ad-2dfd8f4c1df4\",\n                \"quantity\": 3\n            },\n            {\n                \"cart_item_id\": \"1467f1c5-261e-4d5c-b310-66540829cece\",\n                \"book_id\": \"0c560215-8d24-483c-9729-14f0a3d4a448\",\n                \"cart_id\": \"1d738a1e-7525-41d4-a8ad-2dfd8f4c1df4\",\n                \"quantity\": 1\n            }\n        ],\n        \"active\": true\n    },\n    \"status\": \"success\"\n}"
+						},
+						{
+							"name": "Items Ordering Constraint",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"book_id\":\"1b26987d-3bae-4281-bf96-ed31333402ca\",\n    \"quantity\": 6\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/cart/items"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 21:33:37 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Quantity must be greater than 0 and less than 5\",\n    \"status\": \"fail\"\n}"
+						},
+						{
+							"name": "Item Updated",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"book_id\":\"1b26987d-3bae-4281-bf96-ed31333402ca\",\n    \"quantity\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/cart/items"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 21:34:15 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"Item quantity updated\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get User Cart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/cart"
+					},
+					"response": [
+						{
+							"name": "Get User Cart",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url}}/cart"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 21:35:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "586"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"1d738a1e-7525-41d4-a8ad-2dfd8f4c1df4\",\n        \"user_id\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n        \"created_at\": \"2023-08-29T21:33:19.562896Z\",\n        \"updated_at\": \"2023-08-29T21:35:45.350515176Z\",\n        \"items\": [\n            {\n                \"cart_item_id\": \"1f734265-093f-41ac-bd7b-384ab1f8799f\",\n                \"book_id\": \"1b26987d-3bae-4281-bf96-ed31333402ca\",\n                \"cart_id\": \"1d738a1e-7525-41d4-a8ad-2dfd8f4c1df4\",\n                \"quantity\": 3\n            },\n            {\n                \"cart_item_id\": \"1467f1c5-261e-4d5c-b310-66540829cece\",\n                \"book_id\": \"0c560215-8d24-483c-9729-14f0a3d4a448\",\n                \"cart_id\": \"1d738a1e-7525-41d4-a8ad-2dfd8f4c1df4\",\n                \"quantity\": 1\n            }\n        ],\n        \"total_cost\": 237,\n        \"active\": true\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Cart",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{url}}/cart/items"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cart_id\" : \"86109355-4f16-4350-9fea-8e87fe3a55c4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/order"
+					},
+					"response": [
+						{
+							"name": "Create Order (Out of Stock)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cart_id\" : \"e7475432-35c3-410c-a19f-277f3d03fcbc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/order"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 21:45:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Book is out of stock\",\n    \"status\": \"fail\"\n}"
+						},
+						{
+							"name": "Success Order Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cart_id\" : \"83c8ae39-292f-428a-8f1e-b6e40ebe7b74\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/order"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 30 Aug 2023 12:27:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "303"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": {\n        \"id\": \"dffb2a57-9a84-402a-b7ee-47330a14e8e6\",\n        \"cart_id\": \"83c8ae39-292f-428a-8f1e-b6e40ebe7b74\",\n        \"total_cost\": 60,\n        \"created_at\": \"2023-08-30T12:27:00.476911725Z\",\n        \"updated_at\": \"2023-08-30T12:27:00.476911725Z\",\n        \"razorpay_order_id\": \"order_MWHO2WmhWB4jiV\",\n        \"payment_status\": \"pending\"\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get User Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/order"
+					},
+					"response": [
+						{
+							"name": "Get User Orders",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url}}/order"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 31 Aug 2023 16:17:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "691"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"be7679fb-30a5-4b95-a616-0124674b6981\",\n            \"cart_id\": \"9ae19e7f-ddf2-4619-8800-39b2ff1ba1f6\",\n            \"total_cost\": 60,\n            \"created_at\": \"2023-08-31T16:08:55.404614Z\",\n            \"updated_at\": \"2023-08-31T16:08:55.404614Z\",\n            \"payment_status\": \"pending\",\n            \"razorpay_order_id\": \"order_MWjhZoYrLo2IQS\"\n        },\n        {\n            \"id\": \"334c39b6-632d-4b08-ab2b-23c763cf02b2\",\n            \"cart_id\": \"86109355-4f16-4350-9fea-8e87fe3a55c4\",\n            \"total_cost\": 60,\n            \"created_at\": \"2023-08-31T16:10:46.099932Z\",\n            \"updated_at\": \"2023-08-31T16:14:45.048742Z\",\n            \"payment_status\": \"paid\",\n            \"razorpay_order_id\": \"order_MWjjWeFs1QPePs\",\n            \"razorpay_payment_id\": \"pay_MWjbeSMfEbfUYO\",\n            \"razorpay_signature\": \"c92f2c5eeaf248be5e5398a11128ae5a8af6633c15814833b0b34a41b100806c\"\n        }\n    ],\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Order By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/order/:orderID",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order",
+								":orderID"
+							],
+							"variable": [
+								{
+									"key": "orderID",
+									"value": "a7794956-b1a6-4fe0-80fa-67bc6face6e5"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Order By ID (Success)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/order/:orderID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"order",
+										":orderID"
+									],
+									"variable": [
+										{
+											"key": "orderID",
+											"value": "4e08cf9b-f70b-4791-a124-a82ba937416e"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 21:52:09 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "248"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"4e08cf9b-f70b-4791-a124-a82ba937416e\",\n        \"cart_id\": \"bc7a6f80-7497-4f15-b932-54aeca23202d\",\n        \"total_cost\": 30,\n        \"created_at\": \"2023-08-29T21:40:17.927385Z\",\n        \"updated_at\": \"2023-08-29T21:44:17.758293Z\",\n        \"payment_status\": \"paid\"\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Checkout Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"payment_status\" : \"paid\",\n    \"razorpay_payment_id\" : \"pay_MWjbeSMfEbfUYO\",\n    \"razorpay_signature\":\"c92f2c5eeaf248be5e5398a11128ae5a8af6633c15814833b0b34a41b100806c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/order/:orderID/checkout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order",
+								":orderID",
+								"checkout"
+							],
+							"variable": [
+								{
+									"key": "orderID",
+									"value": "be7679fb-30a5-4b95-a616-0124674b6981"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Checkout Order",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_status\" : \"paid\",\n    \"razorpay_payment_id\" : \"pay_MWjbeSMfEbfUYO\",\n    \"razorpay_signature\":\"c92f2c5eeaf248be5e5398a11128ae5a8af6633c15814833b0b34a41b100806c\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/order/:orderID/checkout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"order",
+										":orderID",
+										"checkout"
+									],
+									"variable": [
+										{
+											"key": "orderID",
+											"value": "be7679fb-30a5-4b95-a616-0124674b6981"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 31 Aug 2023 16:19:36 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "469"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Order checked out successfully\",\n    \"order\": {\n        \"id\": \"be7679fb-30a5-4b95-a616-0124674b6981\",\n        \"cart_id\": \"9ae19e7f-ddf2-4619-8800-39b2ff1ba1f6\",\n        \"total_cost\": 60,\n        \"created_at\": \"2023-08-31T16:08:55.404614Z\",\n        \"updated_at\": \"2023-08-31T16:19:36.779236697Z\",\n        \"payment_status\": \"paid\",\n        \"razorpay_order_id\": \"order_MWjhZoYrLo2IQS\",\n        \"razorpay_payment_id\": \"pay_MWjbeSMfEbfUYO\",\n        \"razorpay_signature\": \"c92f2c5eeaf248be5e5398a11128ae5a8af6633c15814833b0b34a41b100806c\"\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Create Review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rating\": 4.5,\n    \"comment\":\"Hello this bood is one of the best\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/review/book/:bookId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"review",
+								"book",
+								":bookId"
+							],
+							"variable": [
+								{
+									"key": "bookId",
+									"value": "1b26987d-3bae-4281-bf96-ed31333402ca"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Review",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"rating\": 4.5,\n    \"comment\":\"Hello this bood is one of the best\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/review/book/:bookId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"review",
+										"book",
+										":bookId"
+									],
+									"variable": [
+										{
+											"key": "bookId",
+											"value": "1b26987d-3bae-4281-bf96-ed31333402ca"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 22:12:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "346"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"738dfc48-bf34-46d9-92b1-53bb90c5f06d\",\n        \"user_id\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n        \"username\": \"souvik150\",\n        \"book_id\": \"1b26987d-3bae-4281-bf96-ed31333402ca\",\n        \"comment\": \"Hello this bood is one of the best\",\n        \"rating\": 4.5,\n        \"created_at\": \"2023-08-29T22:12:25.014538979Z\",\n        \"updated_at\": \"2023-08-29T22:12:25.014538979Z\"\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Review By User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/review"
+					},
+					"response": [
+						{
+							"name": "Get Review By User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url}}/review"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 22:12:40 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "357"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"results\": 1,\n    \"reviews\": [\n        {\n            \"id\": \"738dfc48-bf34-46d9-92b1-53bb90c5f06d\",\n            \"user_id\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n            \"username\": \"souvik150\",\n            \"book_id\": \"1b26987d-3bae-4281-bf96-ed31333402ca\",\n            \"comment\": \"Hello this bood is one of the best\",\n            \"rating\": 4.5,\n            \"created_at\": \"2023-08-29T22:12:25.014538Z\",\n            \"updated_at\": \"2023-08-29T22:12:25.014538Z\"\n        }\n    ],\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Review By Book",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/review/book/:bookId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"review",
+								"book",
+								":bookId"
+							],
+							"variable": [
+								{
+									"key": "bookId",
+									"value": "1b26987d-3bae-4281-bf96-ed31333402ca"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Review By Book",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/review/book/:bookId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"review",
+										"book",
+										":bookId"
+									],
+									"variable": [
+										{
+											"key": "bookId",
+											"value": "1b26987d-3bae-4281-bf96-ed31333402ca"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 22:12:53 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "370"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"rating\": 4.5,\n    \"results\": 1,\n    \"reviews\": [\n        {\n            \"id\": \"738dfc48-bf34-46d9-92b1-53bb90c5f06d\",\n            \"user_id\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n            \"username\": \"souvik150\",\n            \"book_id\": \"1b26987d-3bae-4281-bf96-ed31333402ca\",\n            \"comment\": \"Hello this bood is one of the best\",\n            \"rating\": 4.5,\n            \"created_at\": \"2023-08-29T22:12:25.014538Z\",\n            \"updated_at\": \"2023-08-29T22:12:25.014538Z\"\n        }\n    ],\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Review",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/review/:reviewId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"review",
+								":reviewId"
+							],
+							"variable": [
+								{
+									"key": "reviewId",
+									"value": "e2a14918-25b7-4e87-8832-d02052ca469b"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vendor",
+			"item": [
+				{
+					"name": "Get Applications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/vendor"
+					},
+					"response": [
+						{
+							"name": "Get Applications (Pending Roles)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url}}/vendor"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 22:16:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "673"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"vendors\": [\n            {\n                \"id\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n                \"email\": \"admin2@gmail.com\",\n                \"username\": \"souvik150\",\n                \"role\": \"pending\",\n                \"phone_number\": \"+917330787625\",\n                \"verified\": true,\n                \"otp\": \"123456\",\n                \"email_subscription\": true,\n                \"created_at\": \"2023-08-29T19:43:34.828514Z\",\n                \"updated_at\": \"2023-08-29T22:13:30.490434Z\",\n                \"cart_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"wishlist_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"save_for_later_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"books_bought\": [\n                    \"706250cd-9bfc-43bc-b7e9-a17e74acfdaf\"\n                ],\n                \"orders\": [\n                    \"4e08cf9b-f70b-4791-a124-a82ba937416e\",\n                    \"269425b5-c5b0-43c5-923a-3db98e4fa444\",\n                    \"e60dde0a-c8b0-40c1-a8dd-a349291973a5\"\n                ]\n            }\n        ]\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Apply Vendor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/vendor/apply"
+					},
+					"response": [
+						{
+							"name": "Apply Vendor (Role to Pending)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url}}/vendor/apply"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 22:13:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "671"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"user\": {\n            \"id\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n            \"email\": \"admin2@gmail.com\",\n            \"username\": \"souvik150\",\n            \"role\": \"pending\",\n            \"phone_number\": \"+917330787625\",\n            \"verified\": true,\n            \"otp\": \"123456\",\n            \"email_subscription\": true,\n            \"created_at\": \"2023-08-29T19:43:34.828514Z\",\n            \"updated_at\": \"2023-08-29T22:13:30.490434758Z\",\n            \"cart_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"wishlist_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"save_for_later_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"books_bought\": [\n                \"706250cd-9bfc-43bc-b7e9-a17e74acfdaf\"\n            ],\n            \"orders\": [\n                \"4e08cf9b-f70b-4791-a124-a82ba937416e\",\n                \"269425b5-c5b0-43c5-923a-3db98e4fa444\",\n                \"e60dde0a-c8b0-40c1-a8dd-a349291973a5\"\n            ]\n        }\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reject Vendor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/vendor/reject/:userID",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vendor",
+								"reject",
+								":userID"
+							],
+							"variable": [
+								{
+									"key": "userID",
+									"value": "9824c802-4d62-40f6-8717-5682feee0d40"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Error Already Approved or Not Applied",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/vendor/reject/:userID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vendor",
+										"reject",
+										":userID"
+									],
+									"variable": [
+										{
+											"key": "userID",
+											"value": "a8118853-1ced-4bb5-aef5-ecc7efb22109"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 22:17:31 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"This user is not a pending vendor\",\n    \"status\": \"fail\"\n}"
+						},
+						{
+							"name": "Success (Role revert to user from pending)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/vendor/reject/:userID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vendor",
+										"reject",
+										":userID"
+									],
+									"variable": [
+										{
+											"key": "userID",
+											"value": "9824c802-4d62-40f6-8717-5682feee0d40"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 22:19:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "483"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"user\": {\n            \"id\": \"9824c802-4d62-40f6-8717-5682feee0d40\",\n            \"email\": \"vendor@gmail.com\",\n            \"username\": \"souvik150\",\n            \"role\": \"user\",\n            \"phone_number\": \"+917330787625\",\n            \"verified\": true,\n            \"otp\": \"123456\",\n            \"email_subscription\": true,\n            \"created_at\": \"2023-08-29T22:18:39.51372Z\",\n            \"updated_at\": \"2023-08-29T22:19:24.226056111Z\",\n            \"cart_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"wishlist_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"save_for_later_id\": \"00000000-0000-0000-0000-000000000000\"\n        }\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Approve Vendor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/vendor/approve/:userID",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vendor",
+								"approve",
+								":userID"
+							],
+							"variable": [
+								{
+									"key": "userID",
+									"value": "a8118853-1ced-4bb5-aef5-ecc7efb22109"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Error (Only Admin Allowed)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/vendor/approve/:userID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vendor",
+										"approve",
+										":userID"
+									],
+									"variable": [
+										{
+											"key": "userID",
+											"value": "a8118853-1ced-4bb5-aef5-ecc7efb22109"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 22:15:14 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Only admins can approve vendor applications\",\n    \"status\": \"fail\"\n}"
+						},
+						{
+							"name": "Success Approve Vendor",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/vendor/approve/:userID",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vendor",
+										"approve",
+										":userID"
+									],
+									"variable": [
+										{
+											"key": "userID",
+											"value": "a8118853-1ced-4bb5-aef5-ecc7efb22109"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Aug 2023 22:17:06 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "670"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"user\": {\n            \"id\": \"a8118853-1ced-4bb5-aef5-ecc7efb22109\",\n            \"email\": \"admin2@gmail.com\",\n            \"username\": \"souvik150\",\n            \"role\": \"vendor\",\n            \"phone_number\": \"+917330787625\",\n            \"verified\": true,\n            \"otp\": \"123456\",\n            \"email_subscription\": true,\n            \"created_at\": \"2023-08-29T19:43:34.828514Z\",\n            \"updated_at\": \"2023-08-29T22:17:06.367535617Z\",\n            \"cart_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"wishlist_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"save_for_later_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"books_bought\": [\n                \"706250cd-9bfc-43bc-b7e9-a17e74acfdaf\"\n            ],\n            \"orders\": [\n                \"4e08cf9b-f70b-4791-a124-a82ba937416e\",\n                \"269425b5-c5b0-43c5-923a-3db98e4fa444\",\n                \"e60dde0a-c8b0-40c1-a8dd-a349291973a5\"\n            ]\n        }\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "Create Payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"order_id\":\"nfsrolgntsog\",\n    \"payment_id\":\"slrgnstljgtsnlk\",\n    \"payment_status\":\"paid\",\n    \"signature\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/payment"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HealthCheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{url}}/healthchecker"
+			},
+			"response": [
+				{
+					"name": "HealthCheck",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/healthchecker"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 29 Aug 2023 22:19:55 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "62"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Welcome to Book Ecommerce App\",\n    \"status\": \"success\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkQXQiOjE2OTM0OTgwNTQsImVtYWlsIjoic291dmlrbXVraGVyamVlMTUwQGdtYWlsLmNvbSIsImV4cCI6MTY5MzU4NDQ1Nywicm9sZSI6ImFkbWluIiwidXNlcklEIjoiY2VlZGJmOWQtZWI1YS00YzFkLThiZGQtMTMxOTMxNWIwOWZmIiwidXNlcm5hbWUiOiJzb3V2aWsxNTAifQ.7Btv_bLmDi-H9mrQw9e-lnyHAyj8kVyVPleOOHPNNPs"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://139.59.50.166/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "url",
+			"value": "http://127.0.0.1/api/v1",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}

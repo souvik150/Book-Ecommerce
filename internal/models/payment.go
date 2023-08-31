@@ -12,11 +12,3 @@ type Payment struct {
 	PaymentStatus string    `gorm:"not null;default:pending;" json:"payment_status,omitempty"`
 	Signature     string    `gorm:"not null" json:"signature,omitempty"`
 }
-
-type CreatePaymentSchema struct {
-	OrderID       uuid.UUID `json:"order_id,omitempty"`
-	UserID        uuid.UUID `json:"user_id,omitempty"`
-	PaymentID     string    `json:"payment_id,omitempty"`
-	PaymentStatus string    `json:"payment_status,omitempty"`
-	Signature     string    `json:"signature,omitempty"`
-}

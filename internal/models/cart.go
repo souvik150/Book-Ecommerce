@@ -23,14 +23,3 @@ type CartItem struct {
 	CartID     uuid.UUID `gorm:"type:uuid" json:"cart_id,omitempty"`
 	Quantity   int       `json:"quantity,omitempty"`
 }
-
-type AddItemToCartSchema struct {
-	BookID   uuid.UUID `json:"book_id"`
-	Quantity int       `json:"quantity"`
-}
-
-type CreateCartSchema struct {
-	ID     uuid.UUID `json:"id,omitempty"`
-	UserID uuid.UUID `json:"user_id,omitempty"`
-	Items  []uuid.UUID
-}

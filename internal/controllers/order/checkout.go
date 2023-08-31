@@ -5,19 +5,12 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
 	"github.com/lib/pq"
-	razorpay "github.com/razorpay/razorpay-go"
-	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/config"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/database"
+	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/services"
 )
 
 func CheckoutOrder(c *fiber.Ctx) error {
-	config, err := config.LoadConfig(".")
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to load environment variables"})
-	}
-
-	client := razorpay.NewClient(config.RazorPayKey, config.RazorPaySecret)
 
 	userId := c.Locals("userID").(uuid.UUID)
 	orderId := c.Params("orderId")
@@ -25,16 +18,27 @@ func CheckoutOrder(c *fiber.Ctx) error {
 	user, err := services.GetUserByID(userId)
 	order, err := services.GetOrderByID(orderId)
 
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to get order"})
+	var payload models.UpdateOrderSchema
+	if err := c.BodyParser(&payload); err != nil {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": err.Error()})
 	}
 
-	data := map[string]interface{}{
-		"amount":   order.TotalCost * 100,
-		"currency": "INR",
-		"receipt":  order.ID.String(),
+	if order.PaymentStatus != "pending" {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": "Order has already been checked out"})
 	}
-	body, err := client.Order.Create(data, nil)
+
+	//update order
+	order.RazorpayPaymentID = payload.RazorpayPaymentID
+	order.RazorpaySignature = payload.RazorpaySignature
+	order.PaymentStatus = payload.PaymentStatus
+
+	err = database.DB.Save(&order).Error
+
+	fmt.Println(order)
+
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to update order"})
+	}
 
 	// check items in the cart of the order and check if they are still available
 	fmt.Println(userId)
@@ -54,10 +58,6 @@ func CheckoutOrder(c *fiber.Ctx) error {
 		}
 	}
 
-	if order.PaymentStatus != "pending" {
-		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": "Order has already been checked out"})
-	}
-
 	result := database.DB.Preload("Items").Find(&cart, "id = ?", order.CartID)
 	if result.Error != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to get carts"})
@@ -65,7 +65,6 @@ func CheckoutOrder(c *fiber.Ctx) error {
 	books := pq.StringArray{}
 
 	for _, item := range cart.Items {
-
 		alreadyBought := false
 		for _, boughtID := range user.BooksBought {
 			if boughtID == item.BookID.String() {
@@ -103,11 +102,5 @@ func CheckoutOrder(c *fiber.Ctx) error {
 		}
 	}
 
-	order.PaymentStatus = "paid"
-	err = database.DB.Save(&order).Error
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to update order"})
-	}
-
-	return c.Status(fiber.StatusOK).JSON(fiber.Map{"status": "success", "message": "Order checked out successfully", "data": body})
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{"status": "success", "message": "Order checked out successfully", "order": order})
 }

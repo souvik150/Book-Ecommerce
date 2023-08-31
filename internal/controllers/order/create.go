@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"github.com/google/uuid"
+	"github.com/razorpay/razorpay-go"
 	"time"
+	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/config"
 
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/database"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
@@ -12,6 +14,11 @@ import (
 )
 
 func CreateOrder(c *fiber.Ctx) error {
+	config, err := config.LoadConfig(".")
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to load environment variables"})
+	}
+
 	// Get user id from context
 	userId := c.Locals("userID").(uuid.UUID)
 	user, err := services.GetUserByID(userId)
@@ -51,6 +58,16 @@ func CreateOrder(c *fiber.Ctx) error {
 		cost = cost + (book.Price * float64(item.Quantity))
 	}
 
+	client := razorpay.NewClient(config.RazorPayKey, config.RazorPaySecret)
+
+	data := map[string]interface{}{
+		"amount":   cost * 100,
+		"currency": "INR",
+		"receipt":  payload.CartID,
+	}
+
+	body, err := client.Order.Create(data, nil)
+
 	result = database.DB.Preload("Items").Find(&cart, "id = ?", user.CartId)
 	if result.Error != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to get carts"})
@@ -71,11 +88,13 @@ func CreateOrder(c *fiber.Ctx) error {
 	// Create order
 	now := time.Now()
 	order := models.Order{
-		CartID:        payload.CartID,
-		TotalCost:     cost,
-		CreatedAt:     now,
-		UpdatedAt:     now,
-		PaymentStatus: "pending",
+		ID:              uuid.New(),
+		CartID:          payload.CartID,
+		TotalCost:       cost,
+		CreatedAt:       now,
+		UpdatedAt:       now,
+		RazorpayOrderID: body["id"].(string),
+		PaymentStatus:   "pending",
 	}
 	database.DB.Create(&order)
 
@@ -105,5 +124,5 @@ func CreateOrder(c *fiber.Ctx) error {
 	user.CartId = uuid.Nil
 	database.DB.Save(&user)
 
-	return c.Status(fiber.StatusOK).JSON(fiber.Map{"status": "success", "message": "Order created successfully"})
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{"status": "success", "message": "Order created successfully", "order": order})
 }

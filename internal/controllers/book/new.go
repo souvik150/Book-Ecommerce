@@ -78,7 +78,8 @@ func CreateBook(c *fiber.Ctx) error {
 
 		uploadedURL, err := utils.UploadFile(f, fileHeader)
 		if err != nil {
-			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to upload file"})
+			fmt.Println(err)
+			return err
 		}
 		full_text_url = uploadedURL
 	}
@@ -101,7 +102,7 @@ func CreateBook(c *fiber.Ctx) error {
 
 		uploadedURL, err := utils.UploadFile(f, fileHeader)
 		if err != nil {
-			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to upload file"})
+			return err
 		}
 		sample_url = uploadedURL
 	}
@@ -124,13 +125,9 @@ func CreateBook(c *fiber.Ctx) error {
 
 		uploadedURL, err := utils.UploadFile(f, fileHeader)
 		if err != nil {
-			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Failed to upload file"})
+			return err
 		}
 		cover_images = append(cover_images, uploadedURL)
-	}
-
-	if full_text_url == "" || sample_url == "" || len(cover_images) == 0 {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"status": "fail", "message": "Unable to upload files"})
 	}
 
 	payload := &models.CreateBookSchema{

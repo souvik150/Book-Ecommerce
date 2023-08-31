@@ -15,10 +15,3 @@ type Review struct {
 	CreatedAt time.Time `gorm:"not null" json:"created_at,omitempty"`
 	UpdatedAt time.Time `gorm:"not null" json:"updated_at,omitempty"`
 }
-
-type CreateReviewSchema struct {
-	UserID  uuid.UUID `json:"user_id"`
-	BookID  uuid.UUID `json:"book_id"`
-	Comment string    `json:"comment"`
-	Rating  float64   `json:"rating"`
-}
