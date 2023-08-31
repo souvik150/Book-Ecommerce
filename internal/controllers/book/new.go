@@ -6,7 +6,7 @@ import (
 	"github.com/google/uuid"
 	"log"
 	"mime/multipart"
-	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
+	bookSchema "www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/schemas/book"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/services"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/utils"
 )
@@ -130,7 +130,7 @@ func CreateBook(c *fiber.Ctx) error {
 		cover_images = append(cover_images, uploadedURL)
 	}
 
-	payload := &models.CreateBookSchema{
+	payload := &bookSchema.CreateBookSchema{
 		ISBN:        isbn,
 		Title:       title,
 		Author:      author,

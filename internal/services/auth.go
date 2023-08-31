@@ -10,10 +10,12 @@ import (
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/config"
 	database "www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/database"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
+	tokenSchema "www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/schemas/otp"
+	userSchema "www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/schemas/user"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/utils"
 )
 
-func SignupUser(payload *models.RegisterUserSchema) (models.User, error) {
+func SignupUser(payload *userSchema.RegisterUserSchema) (models.User, error) {
 	config, _ := config.LoadConfig(".")
 
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(payload.Password), bcrypt.DefaultCost)
@@ -66,7 +68,7 @@ func SignupUser(payload *models.RegisterUserSchema) (models.User, error) {
 	return newUser, nil
 }
 
-func LoginUser(payload *models.LoginUserSchema) (models.AuthResponse, error) {
+func LoginUser(payload *userSchema.LoginUserSchema) (models.AuthResponse, error) {
 	var user models.User
 	result := database.DB.Where("email = ?", payload.Email).First(&user)
 	if result.Error != nil {
@@ -173,7 +175,7 @@ func ResendOTP(userID uuid.UUID) error {
 	return nil
 }
 
-func RefreshAccessToken(payload *models.RefreshTokenSchema) (models.AuthResponse, error) {
+func RefreshAccessToken(payload *tokenSchema.RefreshTokenSchema) (models.AuthResponse, error) {
 	config, err := config.LoadConfig(".")
 	if err != nil {
 		return models.AuthResponse{}, err

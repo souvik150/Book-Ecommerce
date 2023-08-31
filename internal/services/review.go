@@ -4,9 +4,10 @@ import (
 	"github.com/google/uuid"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/database"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
+	reviewSchema "www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/schemas/review"
 )
 
-func CreateReview(userID uuid.UUID, bookID uuid.UUID, userName string, payload models.CreateReviewSchema) (models.Review, error) {
+func CreateReview(userID uuid.UUID, bookID uuid.UUID, userName string, payload reviewSchema.CreateReviewSchema) (models.Review, error) {
 	review := models.Review{
 		UserID:   userID,
 		BookID:   bookID,
@@ -34,7 +35,7 @@ func GetReviewByUserIDAndBookID(userID uuid.UUID, bookID uuid.UUID) (models.Revi
 	return review, nil
 }
 
-func UpdateReview(userID uuid.UUID, bookID uuid.UUID, userName string, payload models.CreateReviewSchema) (models.Review, error) {
+func UpdateReview(userID uuid.UUID, bookID uuid.UUID, userName string, payload reviewSchema.CreateReviewSchema) (models.Review, error) {
 	review := models.Review{
 		UserID:   userID,
 		BookID:   bookID,

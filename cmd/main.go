@@ -40,7 +40,6 @@ func main() {
 	routes.CartRoutes(apiGroup)
 	routes.OrderRoutes(apiGroup)
 	routes.ReviewRoutes(apiGroup)
-	routes.PaymentRoutes(apiGroup)
 
 	apiGroup.Get("/healthchecker", func(c *fiber.Ctx) error {
 		return c.Status(200).JSON(fiber.Map{

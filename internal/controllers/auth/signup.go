@@ -6,13 +6,15 @@ import (
 	"github.com/gofiber/fiber/v2/log"
 	"mime/multipart"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/config"
-	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
+	userSchema "www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/schemas/user"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/services"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/utils"
 )
 
 func SignupUser(c *fiber.Ctx) error {
 	config, _ := config.LoadConfig(".")
+
+	fmt.Println(config.Production)
 
 	form, err := c.MultipartForm()
 	if err != nil {
@@ -58,7 +60,7 @@ func SignupUser(c *fiber.Ctx) error {
 	}
 	// Create a payload for user registration
 	fmt.Println(pic)
-	payload := &models.RegisterUserSchema{
+	payload := &userSchema.RegisterUserSchema{
 		Username:     username,
 		Email:        email,
 		Password:     password,

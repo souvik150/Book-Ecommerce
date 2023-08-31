@@ -26,3 +26,10 @@ type User struct {
 	BooksBought       pq.StringArray `gorm:"type:text[]" json:"books_bought,omitempty"`
 	Orders            pq.StringArray `gorm:"type:text[]" json:"orders,omitempty"`
 }
+
+type AuthResponse struct {
+	UserID       uuid.UUID `json:"userId"`
+	AccessToken  string    `json:"access_token"`
+	RefreshToken string    `json:"refresh_token" validate:"omitempty"`
+	Verified     bool      `json:"verified"`
+}

@@ -5,6 +5,7 @@ import (
 	"github.com/google/uuid"
 	"gorm.io/gorm"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
+	reviewSchema "www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/schemas/review"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/services"
 )
 
@@ -13,7 +14,7 @@ func CreateReview(c *fiber.Ctx) error {
 	bookID := uuid.MustParse(c.Params("bookId"))
 
 	// Get payload
-	var payload models.CreateReviewSchema
+	var payload reviewSchema.CreateReviewSchema
 	if err := c.BodyParser(&payload); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": err.Error()})
 	}

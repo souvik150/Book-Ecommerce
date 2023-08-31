@@ -6,6 +6,7 @@ import (
 	"github.com/google/uuid"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/database"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
+	cartSchema "www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/schemas/cart"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/services"
 )
 
@@ -20,7 +21,7 @@ func AddItemToNormalCart(c *fiber.Ctx) error {
 	}
 
 	// Get payload
-	var payload models.AddItemToCartSchema
+	var payload cartSchema.AddItemToCartSchema
 	if err := c.BodyParser(&payload); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": err.Error()})
 	}

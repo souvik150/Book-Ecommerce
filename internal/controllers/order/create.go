@@ -10,6 +10,7 @@ import (
 
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/database"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
+	orderSchema "www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/schemas/order"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/services"
 )
 
@@ -29,7 +30,7 @@ func CreateOrder(c *fiber.Ctx) error {
 	fmt.Println(user)
 
 	// Get payload
-	var payload models.CreateOrderSchema
+	var payload orderSchema.CreateOrderSchema
 	if err := c.BodyParser(&payload); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": err.Error()})
 	}

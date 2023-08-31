@@ -3,12 +3,12 @@ package auth
 import (
 	"fmt"
 	"github.com/gofiber/fiber/v2"
-	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
+	userSchemma "www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/schemas/user"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/services"
 )
 
 func LoginUser(c *fiber.Ctx) error {
-	var payload models.LoginUserSchema
+	var payload userSchemma.LoginUserSchema
 
 	if err := c.BodyParser(&payload); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": err.Error()})

@@ -6,7 +6,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/lib/pq"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/database"
-	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
+	orderSchema "www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/schemas/order"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/services"
 )
 
@@ -18,7 +18,7 @@ func CheckoutOrder(c *fiber.Ctx) error {
 	user, err := services.GetUserByID(userId)
 	order, err := services.GetOrderByID(orderId)
 
-	var payload models.UpdateOrderSchema
+	var payload orderSchema.UpdateOrderSchema
 	if err := c.BodyParser(&payload); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": err.Error()})
 	}

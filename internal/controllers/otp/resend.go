@@ -2,12 +2,12 @@ package otp
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
+	otpSchema "www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/schemas/otp"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/services"
 )
 
 func ResendOTP(c *fiber.Ctx) error {
-	var request models.ResendOTPRequest
+	var request otpSchema.ResendOTPRequest
 	if err := c.BodyParser(&request); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"status": "fail", "message": "Invalid request body"})
 	}

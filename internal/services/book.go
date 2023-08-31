@@ -7,9 +7,10 @@ import (
 	"strconv"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/database"
 	"www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/models"
+	bookSchemas "www.github.com/BalkanID-University/vit-2025-summer-engineering-internship-task-souvik150/internal/schemas/book"
 )
 
-func CreateBook(payload *models.CreateBookSchema) (*models.Book, error) {
+func CreateBook(payload *bookSchemas.CreateBookSchema) (*models.Book, error) {
 
 	// Convert string price to float64
 	price, err := strconv.ParseFloat(payload.Price, 64)
